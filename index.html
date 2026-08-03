@@ -207,6 +207,78 @@ body.en .lang-toggle .knob{transform:translate(100%,-50%)}
 body.en .lang-toggle .opt.zh{color:rgba(255,255,255,.6)}
 body.en .lang-toggle .opt.en{color:#131A54}
 .pageno{position:fixed;bottom:26px;right:30px;color:rgba(255,255,255,.85);font-size:13px;letter-spacing:2px;z-index:50;text-shadow:0 1px 4px rgba(0,0,0,.4);pointer-events:none}
+
+/* ---------- mobile responsive ---------- */
+@media (max-width:768px){
+  html,body{overflow:auto;height:auto}
+  .deck{height:auto}
+  .slide{position:relative;inset:auto;opacity:1;visibility:visible;pointer-events:auto;display:block;overflow:visible}
+  .inner{width:100%;height:auto;transform:none;padding:36px 20px 44px;position:static}
+  .nav,.pageno,.progress{display:none}
+  .lang-toggle{top:12px;right:12px;width:118px;height:34px}
+  .rings,.skyline{display:none}
+  .cover h1{font-size:52px;letter-spacing:6px}
+  .cover .en{font-size:17px;letter-spacing:5px}
+  .cover .cover-tag{font-size:13px;letter-spacing:3px}
+  .cover .apply{font-size:13.5px;padding:10px 16px;gap:10px;white-space:normal}
+  .asml-logo{height:18px}
+  .cover .contact{font-size:13px;gap:14px}
+  .toc-title{font-size:34px;margin-top:0}
+  .toc-grid{grid-template-columns:1fr;row-gap:26px;column-gap:0;margin-top:30px}
+  .toc-grid a,.toc-grid a:nth-child(4),.toc-grid a:nth-child(5){grid-column:auto;justify-self:start}
+  .toc-grid .num{font-size:34px}
+  .toc-grid .t b{font-size:19px;white-space:normal}
+  .toc-grid .t small{font-size:12px}
+  .about-grid{grid-template-columns:1fr;gap:26px}
+  .about-left{padding-top:0}
+  .stagger{margin-top:4px;margin-bottom:20px}
+  .stagger div{font-size:21px}
+  .stagger::after{width:200px}
+  .photo-col{margin-top:0}
+  .photo-side{min-height:260px}
+  .photo-side .avatar{max-width:240px}
+  .photo-side .blob{max-width:300px}
+  .info-pills{flex-wrap:wrap;width:auto;justify-content:center}
+  .info-pills span{white-space:normal}
+  .skill-layout{grid-template-columns:1fr;gap:22px}
+  .cert-card{padding:22px}
+  .sk .no{font-size:26px;min-width:42px}
+  .job-card{padding:22px 18px !important;margin-top:12px !important}
+  .job-head b{font-size:19px}
+  .job-head small{white-space:normal}
+  .job-list{grid-template-columns:1fr;gap:14px}
+  .pt-grid{grid-template-columns:1fr;gap:16px}
+  .star-tabs{grid-template-columns:1fr 1fr;gap:10px}
+  .stab{padding:10px 12px}
+  .stab span{font-size:22px}
+  .stab small{font-size:10px;letter-spacing:1px;white-space:normal}
+  .stab.active::after{display:none}
+  .star-panels{height:auto;margin-top:14px}
+  .sp{position:static;opacity:1;visibility:visible;transform:none;display:none;flex-direction:column;gap:16px;padding:20px 16px}
+  .sp.on{display:flex}
+  .sp-main h3{font-size:18px}
+  .lc{width:40px;font-size:28px}
+  .srw{gap:14px}
+  .srw p{font-size:13px}
+  .sp-stat{width:100%;text-align:center}
+  .bigv{font-size:56px}
+  .bigv small{font-size:28px}
+  .bigv i{font-size:32px}
+  .plan-x{grid-template-columns:1fr;gap:18px}
+  .plan-menu{gap:12px}
+  .pm{padding:14px 16px;gap:14px}
+  .pm .no{font-size:24px;min-width:38px}
+  .pm b{font-size:15.5px}
+  .pm small{font-size:12px}
+  .plan-detail{min-height:auto}
+  .pd{position:static;display:none;opacity:1;visibility:visible;transform:none;padding:20px 16px}
+  .pd.on{display:flex}
+  .pd h3{font-size:18px}
+  .pd li{font-size:13.5px;margin-bottom:9px}
+  .end h1{font-size:32px;letter-spacing:4px;flex-wrap:wrap;gap:10px;text-align:center}
+  .end .contact{font-size:13px;gap:14px}
+  .end .motto{font-size:14px;letter-spacing:1px;text-align:center}
+}
 </style>
 </head>
 <body>
