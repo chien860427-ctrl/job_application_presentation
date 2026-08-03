@@ -142,24 +142,24 @@ html,body{height:100%;font-family:Verdana,'Noto Sans TC',-apple-system,'PingFang
 
 /* plan — interactive menu (right) + detail (left) */
 .plan-x{display:grid;grid-template-columns:.85fr 1.15fr;gap:46px;flex:1;align-items:center;margin-top:4px}
-.plan-detail{position:relative;min-height:400px}
-.pd{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(16px);transition:.35s;background:var(--card);border-radius:20px;padding:34px 38px;display:flex;flex-direction:column;justify-content:center}
+.plan-detail{position:relative;min-height:480px}
+.pd{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(16px);transition:.35s;background:var(--card);border-radius:22px;padding:42px 46px;display:flex;flex-direction:column;justify-content:center}
 .pd.on{opacity:1;visibility:visible;transform:none}
-.pd .tag{align-self:flex-start;background:var(--yellow);color:#131A54;border-radius:999px;padding:5px 16px;font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:14px}
-.pd h3{font-size:22px;font-weight:900;color:var(--primary);margin-bottom:16px;line-height:1.4}
+.pd .tag{align-self:flex-start;background:var(--yellow);color:#131A54;border-radius:999px;padding:6px 18px;font-size:14px;font-weight:700;letter-spacing:1px;margin-bottom:16px}
+.pd h3{font-size:26px;font-weight:900;color:var(--primary);margin-bottom:16px;line-height:1.4}
 .pd ul{list-style:none}
-.pd li{font-size:14px;line-height:1.8;color:var(--text);padding-left:15px;position:relative;margin-bottom:9px}
+.pd li{font-size:15.5px;line-height:1.9;color:var(--text);padding-left:17px;position:relative;margin-bottom:13px}
 .pd li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--yellow)}
 .pd li b{color:var(--primary)}
-.plan-menu{display:flex;flex-direction:column;gap:14px}
-.pm{display:flex;align-items:center;gap:20px;padding:19px 24px;border-radius:16px;cursor:pointer;transition:.25s;border:1px solid transparent}
+.plan-menu{display:flex;flex-direction:column;gap:22px}
+.pm{display:flex;align-items:center;gap:24px;padding:26px 30px;border-radius:16px;cursor:pointer;transition:.25s;border:1px solid transparent}
 .pm:hover{background:var(--card)}
-.pm .no{font-size:34px;font-weight:900;line-height:1;min-width:52px}
+.pm .no{font-size:42px;font-weight:900;line-height:1;min-width:62px}
 .pm:nth-child(1) .no{color:var(--accent)}
 .pm:nth-child(2) .no{color:var(--yellow)}
 .pm:nth-child(3) .no{color:var(--teal)}
-.pm b{display:block;font-size:17.5px;font-weight:900;color:var(--primary);line-height:1.4}
-.pm small{display:block;font-size:13px;color:var(--muted);letter-spacing:2px;margin-top:4px}
+.pm b{display:block;font-size:21px;font-weight:900;color:var(--primary);line-height:1.4}
+.pm small{display:block;font-size:14.5px;color:var(--muted);letter-spacing:2px;margin-top:4px}
 .pm.active{background:var(--primary);border-color:var(--primary);box-shadow:0 12px 26px rgba(15,24,70,.25)}
 .pm.active b{color:#fff}
 .pm.active small{color:#A9B6E4}
@@ -200,15 +200,19 @@ body.en .toc-grid .num{font-size:56px}
 body.en .about p{font-size:13.5px;line-height:1.75}
 body.en .stab small{letter-spacing:0}
 body.en .end .thx{display:none}
-.lang-toggle{position:fixed;top:18px;right:26px;z-index:60;background:var(--primary);color:#fff;border-radius:999px;width:92px;height:36px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;box-shadow:0 6px 16px rgba(15,24,70,.35);user-select:none;transition:.25s}
-.lang-toggle:hover{opacity:.9}
-body.en .lang-toggle{background:var(--yellow);color:#131A54}
+.lang-toggle{position:fixed;top:18px;right:26px;z-index:60;width:136px;height:38px;background:var(--primary);border-radius:999px;display:flex;padding:4px;cursor:pointer;box-shadow:0 6px 16px rgba(15,24,70,.35);user-select:none}
+.lang-toggle .opt{flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.6);position:relative;z-index:1;transition:.25s}
+.lang-toggle .knob{position:absolute;top:4px;left:4px;width:calc(50% - 4px);height:30px;background:var(--yellow);border-radius:999px;transition:transform .3s ease}
+.lang-toggle .opt.zh{color:#131A54}
+body.en .lang-toggle .knob{transform:translateX(100%)}
+body.en .lang-toggle .opt.zh{color:rgba(255,255,255,.6)}
+body.en .lang-toggle .opt.en{color:#131A54}
 .pageno{position:fixed;bottom:26px;right:30px;color:rgba(255,255,255,.85);font-size:13px;letter-spacing:2px;z-index:50;text-shadow:0 1px 4px rgba(0,0,0,.4);pointer-events:none}
 </style>
 </head>
 <body>
 <div class="progress" id="bar"></div>
-<div class="lang-toggle" onclick="toggleLang()"><span id="langLabel">EN</span></div>
+<div class="lang-toggle" onclick="toggleLang()"><span class="knob"></span><span class="opt zh">中文</span><span class="opt en">英文</span></div>
 
 <!-- SVG icon defs -->
 <svg width="0" height="0" style="position:absolute">
@@ -574,7 +578,7 @@ function toggleLang(){
   while(n=w.nextNode()){const t=n.nodeValue.trim();if(t&&map.has(t))n.nodeValue=map.get(t)}
   lang=toEn?'en':'zh';
   document.body.classList.toggle('en',lang==='en');
-  document.getElementById('langLabel').textContent=lang==='zh'?'EN':'中文';
+  
 }
 
 function fit(){
