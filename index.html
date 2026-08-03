@@ -20,11 +20,11 @@ html,body{height:100%;font-family:Verdana,'Noto Sans TC',-apple-system,'PingFang
 .inner{width:1280px;height:720px;flex:none;margin:0;padding:44px 64px 54px;display:flex;flex-direction:column;overflow:hidden;transform:scale(var(--s,1));transform-origin:center center;position:relative;left:26px}
 
 /* section badge (template pill) */
-.badge{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:1.5px solid var(--primary);border-radius:999px;padding:7px 22px 7px 8px;margin-bottom:8px}
+.badge{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;border:1.5px solid var(--primary);border-radius:999px;padding:7px 22px 7px 8px;margin-bottom:26px}
 .badge .dot{width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center}
 .badge .dot svg{width:16px;height:16px}
 .badge span{font-size:16px;font-weight:700;color:var(--primary);letter-spacing:2px}
-.sub-en{font-size:11px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.sub-en{display:none}
 
 /* dark slides */
 .dark{background:linear-gradient(135deg,#111A4E 0%,#1C2A75 55%,#2F4DA8 100%);color:#fff}
@@ -104,7 +104,7 @@ html,body{height:100%;font-family:Verdana,'Noto Sans TC',-apple-system,'PingFang
 .pt-grid .job-card{margin-top:0;padding:34px 36px;display:flex;flex-direction:column}
 .pt-grid .job-head{flex-wrap:nowrap}
 .pt-grid .job-head b{font-size:19px;white-space:nowrap}
-.pt-grid .job-head small{font-size:12.5px}
+.pt-grid .job-head small{font-size:12.5px;white-space:nowrap;letter-spacing:0}
 .pt-grid .job-head>div:last-child{display:flex;gap:6px;flex:none}
 .pt-grid .jtag{padding:5px 11px;font-size:11.5px;margin-right:0}
 .pt-grid .jperiod{padding:5px 13px;font-size:12px}
@@ -200,11 +200,11 @@ body.en .toc-grid .num{font-size:56px}
 body.en .about p{font-size:13.5px;line-height:1.75}
 body.en .stab small{letter-spacing:0}
 body.en .end .thx{display:none}
-.lang-toggle{position:fixed;top:18px;right:26px;z-index:60;width:136px;height:38px;background:var(--primary);border-radius:999px;display:flex;padding:4px;cursor:pointer;box-shadow:0 6px 16px rgba(15,24,70,.35);user-select:none}
+.lang-toggle{position:fixed;top:18px;right:26px;z-index:60;width:136px;height:38px;background:var(--primary);border:1.5px solid rgba(255,255,255,.6);border-radius:999px;display:flex;padding:4px;cursor:pointer;box-shadow:0 6px 16px rgba(15,24,70,.35);user-select:none}
 .lang-toggle .opt{flex:1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.6);position:relative;z-index:1;transition:.25s}
-.lang-toggle .knob{position:absolute;top:4px;left:4px;width:calc(50% - 4px);height:30px;background:var(--yellow);border-radius:999px;transition:transform .3s ease}
+.lang-toggle .knob{position:absolute;top:50%;left:4px;width:calc(50% - 4px);height:28px;background:var(--yellow);border-radius:999px;transition:transform .3s ease;transform:translateY(-50%)}
 .lang-toggle .opt.zh{color:#131A54}
-body.en .lang-toggle .knob{transform:translateX(100%)}
+body.en .lang-toggle .knob{transform:translate(100%,-50%)}
 body.en .lang-toggle .opt.zh{color:rgba(255,255,255,.6)}
 body.en .lang-toggle .opt.en{color:#131A54}
 .pageno{position:fixed;bottom:26px;right:30px;color:rgba(255,255,255,.85);font-size:13px;letter-spacing:2px;z-index:50;text-shadow:0 1px 4px rgba(0,0,0,.4);pointer-events:none}
@@ -212,7 +212,7 @@ body.en .lang-toggle .opt.en{color:#131A54}
 </head>
 <body>
 <div class="progress" id="bar"></div>
-<div class="lang-toggle" onclick="toggleLang()"><span class="knob"></span><span class="opt zh">中文</span><span class="opt en">英文</span></div>
+<div class="lang-toggle" onclick="toggleLang()"><span class="knob"></span><span class="opt zh">中文</span><span class="opt en">Eng</span></div>
 
 <!-- SVG icon defs -->
 <svg width="0" height="0" style="position:absolute">
@@ -245,7 +245,7 @@ body.en .lang-toggle .opt.en{color:#131A54}
   </svg>
   <div class="rings"></div>
   <div class="inner">
-    <div class="cover-tag">面試簡報</div>
+    <div class="cover-tag">自我介紹</div>
     <h1>黃筠茜</h1>
     <div class="en">CATHY HUANG</div>
     <div class="apply"><img class="asml-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iMTA2NSIKICAgaGVpZ2h0PSIzMDAiCiAgIHZpZXdCb3g9IjAgMCAxMDY1IDMwMCIKICAgaWQ9InN2ZzIiCiAgIHZlcnNpb249IjEuMSIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMC45MSByMTM3MjUiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImFzbWwuc3ZnIj4KICA8ZGVmcwogICAgIGlkPSJkZWZzNCIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9ImJhc2UiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6em9vbT0iMC4zNSIKICAgICBpbmtzY2FwZTpjeD0iMjIuMTQyODU3IgogICAgIGlua3NjYXBlOmN5PSI1MTcuMTQyODYiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB4IgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgdW5pdHM9InB4IgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTI4MCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI3NDQiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9Ii00IgogICAgIGlua3NjYXBlOndpbmRvdy15PSItNCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIiAvPgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTciPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgaW5rc2NhcGU6bGFiZWw9IkxheWVyIDEiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpZD0ibGF5ZXIxIgogICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsLTc1Mi4zNjIxNikiPgogICAgPGcKICAgICAgIGlkPSJnMzMzNyIKICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zNTMuMzI3NSw0NzguNTgzMDMpIj4KCTxnCiAgIGlkPSJnMzMzOSI+CgkJPHBvbHlnb24KICAgaWQ9InBvbHlnb24zMzQxIgogICBwb2ludHM9IjEwNjUuODMsNTY2LjkyOSAxMTAyLjY4LDM4OC4zNDYgMTExNi43MSw1NjYuOTI5IDExOTYuMjIzLDU2Ni45MjkgMTE1OS4zNzMsMjgzLjQ2NCAxMDc0LjMzMywyODMuNDY0IDEwMzQuNjQ2LDQ1My41NDIgOTk0Ljk2NCwyODMuNDY0IDkwOS45MjQsMjgzLjQ2NCA4NzMuMDcyLDU2Ni45MjkgOTUyLjQ0Myw1NjYuOTI5IDk2Ni42MTcsMzg4LjM0NiAxMDAzLjQ2OCw1NjYuOTI5ICIKICAgc3R5bGU9ImZpbGw6IzBmMjM4YyIgLz4KCgkJPGcKICAgaWQ9ImczMzQzIj4KCQkJPHBvbHlnb24KICAgaWQ9InBvbHlnb24zMzQ1IgogICBwb2ludHM9IjEzMTIuNDQyLDI4My40NjQgMTIzNS45MDcsMjgzLjQ2NCAxMjM1LjkwNyw1NjYuOTI5IDE0MTcuMzI0LDU2Ni45MjkgMTQxNy4zMjQsNTA3LjQwMSAxMzEyLjQ0Miw1MDcuNDAxICIKICAgc3R5bGU9ImZpbGw6IzBmMjM4YyIgLz4KCgkJPC9nPgoKCQk8ZwogICBpZD0iZzMzNDciPgoJCQk8cGF0aAogICBpZD0icGF0aDMzNDkiCiAgIGQ9Im0gNTM1Ljc0OSwyODMuNDY0IC05Ni4zNzksMCAtODUuMDM5LDI4My40NjUgODUuMDQsMCAxMS4zMzgsLTUxLjAyMyA3My43MDEsMCAxMS4zMzksNTEuMDIzIDg1LjA0LDAgLTg1LjA0LC0yODMuNDY1IHogbSAtNDguMTg5LDYyLjM2MiAyNS41MTIsMTE2LjIyIC01MS4wMjQsMC4wMDEgMjUuNTEyLC0xMTYuMjIxIHoiCiAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgIHN0eWxlPSJmaWxsOiMwZjIzOGMiIC8+CgoJCTwvZz4KCgk8L2c+CgoJPGcKICAgaWQ9ImczMzUxIj4KCQk8cGF0aAogICBpZD0icGF0aDMzNTMiCiAgIGQ9Im0gODI0Ljg4MSwzNjIuODM1IGMgLTcwLjQzMiwtNjEuNjA0IC0xODAuMzM5LC0zNi41NTggLTE4MS40MTcsMTkuODQzIC0xNS45ODEsLTEwNC42NDUgMTEwLjU2MywtMTI2LjQ5MiAxODEuNDEsLTkzLjU0NCAxLjI2MiwxNi44MDIgMi41MjcsMzQuODkyIDAuMDA3LDczLjcwMSB6IgogICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICBzdHlsZT0iZmlsbDojMGYyMzhjIiAvPgoKCQk8cGF0aAogICBpZD0icGF0aDMzNTUiCiAgIGQ9Im0gNzY2LjQ0NSwzOTYuMjEzIGMgLTE3Ljc0NSwtNi45MjYgLTQzLjU2MiwtMTMuMjI3IC00My41OTksLTMzLjQwMyAtMC4wMTUsLTguMjQxIDMuMzc1LC0xNy4xODkgMTkuODMsLTIyLjY1MSAtNTYuNjkzLDUuNjY5IC03NS41OTksNzQuNjMzIC0xMi44OTYsMTA4LjkxIDEwLjkyOCw1Ljk3NCAyOS45MDQsMTIuMzExIDI5LjkwNCwzMi44MiAwLDIzLjk1NyAtMjYuMzIsMzIuNjE3IC00My42MzQsMzIuMjUxIC0yOC43NjEsLTAuNjA1IC01MS44ODUsLTEwLjY1MiAtNzguMjU2LC0yOS40MTcgbCAwLDY4LjAzMiBjIDMxLjIwNywxMy40MzQgODIuMDM5LDI4LjkyOCAxMzIuOTk2LDEzLjI1NiA0MS4xODMsLTEyLjY2NiA3Ni43NjgsLTQ3LjIzNiA3Ni43NjgsLTg0LjEyMyAwLjAwMiwtNjAuMDIyIC01Mi4wOTEsLTc0LjM0NiAtODEuMTEzLC04NS42NzUgeiIKICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgc3R5bGU9ImZpbGw6IzBmMjM4YyIgLz4KCgk8L2c+Cgo8L2c+CiAgPC9nPgo8L3N2Zz4K" alt="ASML">CSCM - Operational Planner (Sustaining Team)</div>
